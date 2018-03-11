@@ -1,15 +1,21 @@
 """
 @author: Muireann
 """
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--input', help='input help')
+args = parser.parse_args()
+
+filename = args.input
 def parseFile(input):
     if input.startswith('http'):
         pass
     else:
-        n, instructions = None, []
+        N, instructions = None, []
         with open(input, 'r') as f:
-            n = int(f.readlines())
+            N = f.readlines()
             for line in f.readlines():
                 instructions.append(line)
-        return n, instructions
+        return N, instructions
     return
