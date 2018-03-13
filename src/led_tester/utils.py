@@ -2,6 +2,7 @@
 @author: Muireann
 """
 import argparse
+from led_tester import main
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input', help='input help')
@@ -18,5 +19,5 @@ def parseFile(input):
             for line in f.readlines():
                 values = line.strip().split()
                 instructions.append(values)
-        return N, instructions
+        return N, instructions, getCommands(instructions)
     return
