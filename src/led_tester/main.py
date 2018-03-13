@@ -1,24 +1,8 @@
-"""Console script for led_tester."""
-import sys
-import click
-click.disable_unicode_literals_warning = True
+from led_tester import utils
+import re
 
-@click.command()
-@click.option("--input", default=None, help="input URI (file or URL)")
-def main(input=None):
-    """Console script for led_tester."""
-    print("input", input)
-
-    N, instructions = parseFile(input)
-
-    ledTester = LEDTester(N)
-
-    for instruction in instructions:
-        ledTester.apply(instruction)
-
-    print('#occupied: ', ledTester.countOccupied())
-    return 0
+def getCommands():
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+                (".*(turn on|turn off|switch)\s*")
+numbers = [list(range(values * N, values * N + N)) for values in range(N)]
