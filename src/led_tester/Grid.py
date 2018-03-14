@@ -5,16 +5,16 @@ def makeGrid(size):
     return a2d
 
 def checkCommand(list, a2d):
-for line in list:
-    if line[0] == "turn on":
-        line.remove("turn on")
-        return turnOn(line, a2d)
-    if line[0] == "turn off":
-        line.remove("turn off")
-        return turnOff(line, a2d)
-    if line[0] == "switch":
-        line.remove("switch")
-        return switch(line, a2d)
+    for line in list:
+        if line[0] == "turn on":
+            line.remove("turn on")
+            return turnOn(line, a2d)
+        if line[0] == "turn off":
+            line.remove("turn off")
+            return turnOff(line, a2d)
+        if line[0] == "switch":
+            line.remove("switch")
+            return switch(line, a2d)
 
 
 def turnOn(line, a2d):
@@ -26,6 +26,10 @@ def turnOn(line, a2d):
     xmax = max(x1, x2)
     ymin = min(y1, y2)
     ymax = max(y1, y2)
+    for i in range(xmin, xmax):
+        for j in range(ymin, ymax):
+            a2d[i][j] = 1
+            #pprint(a2d)
 
 
 def turnOff(line, a2d):
@@ -33,12 +37,26 @@ def turnOff(line, a2d):
     y1 = line[1]
     x2 = line[2]
     y2 = line[3]
+    xmin = min(x1, x2)
+    xmax = max(x1, x2)
+    ymin = min(y1, y2)
+    ymax = max(y1, y2)
+    for i in range(xmin, xmax):
+        for j in range(ymin, ymax):
+            a2d[i][j] = 1
 
 def switch(line, a2d):
     x1 = line[0]
     y1 = line[1]
     x2 = line[2]
     y2 = line[3]
+    xmin = min(x1, x2)
+    xmax = max(x1, x2)
+    ymin = min(y1, y2)
+    ymax = max(y1, y2)
+    for i in range(xmin, xmax):
+        for j in range(ymin, ymax):
+            a2d[i][j] = 1
 
 
 

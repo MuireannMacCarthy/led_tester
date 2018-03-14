@@ -1,33 +1,10 @@
 import led_tester
+import sys
 from led_tester import utils
 import re
 from led_tester import Grid
 
-def getCommands(array):
-    """
-    function to get commands from list and numbers from list
-    """
-    for i in array:
-        #numbers = re.match("(.*)(\d+),(\d+) through (\d+),(\d+)", elem)
-        #cmd = re.findall(".*(turn on|turn off|switch).*", i)
-        #check = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]"
-         #                  "?\d+).*")
-        check = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]"
-                           "?\d+).*")
-        mat = re.search(check, i)
-        #newArray = []
-        if mat:
-            newArray = []
-            newArray.append(mat.group(1))
-            newArray.append(int(mat.group(2)))
-            newArray.append(int(mat.group(3)))
-            newArray.append(int(mat.group(4)))
-            newArray.append(int(mat.group(5)))
-            #newArray.strip().split()
 
-
-            return newArray
-    return
 #if 'turn' in elem:
          #   elem.remove('turn')
         #a, b, c, d = elem.strip().split()
@@ -46,3 +23,9 @@ def getCommands(array):
 # command = re.match(".*(turn on|turn off|switch).*", elem)
 # if command:
 #   cmd = array[0]
+
+if __name__ == "__main__":
+
+    print(sys.argv)
+    file_name = sys.argv[2]
+    print(utils.parseFile(file_name))
