@@ -7,6 +7,7 @@ import re
 # parser.add_argument('--input', help='input help')
 # args = parser.parse_args()
 from pprint import pprint
+from led_tester import Grid
 
 # filename = args.input
 def parseFile(input):
@@ -17,7 +18,6 @@ def parseFile(input):
         with open(input, 'r') as f:
             N = int(f.readline())
             for line in f.readlines():
-                #values = line.strip().split()
                 instructions.append(line)
         return N, getCommands(instructions)
     return
@@ -38,15 +38,19 @@ def getCommands(array):
             newArray.append(mat.group(1))
             for i in range(2, 6):
                 newArray.append(int(mat.group(i)))
-            # newArray.append(int(mat.group(2)))
-            # newArray.append(int(mat.group(3)))
-            # newArray.append(int(mat.group(4)))
-            # newArray.append(int(mat.group(5)))
-            # newArray.strip().split()
 
             instructions.append(newArray)
 
     return instructions
 
+
+Grid.makeGrid(N)
+
+
 if __name__ == "__main__":
     pprint(parseFile("../../../data/test_data.txt"))
+
+
+#References
+#https://www.dotnetperls.com/re-python
+#https://docs.python.org/3/howto/regex.html
