@@ -19,7 +19,7 @@ def parseFile(input):
             N = int(f.readline())
             for line in f.readlines():
                 instructions.append(line)
-        return N, getCommands(instructions)
+        return N, getCommands(instructions), Grid.makeGrid(N)
     return
 
 def getCommands(array):
@@ -41,10 +41,9 @@ def getCommands(array):
 
             instructions.append(newArray)
 
-    return instructions
+    return instructions, Grid.checkCommand(instructions)
 
 
-Grid.makeGrid(N)
 
 
 if __name__ == "__main__":

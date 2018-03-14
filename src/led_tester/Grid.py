@@ -1,4 +1,5 @@
 from led_tester import utils
+
 counter = 0
 # class LED:
 #     def __init__(self, size):
@@ -73,20 +74,21 @@ def switch(a2d):
                 a2d[i][j] = 1
     return a2d
 
-def countLights(a2d, counter):
-    x1 = a2d[0]
-    y1 = a2d[1]
-    x2 = a2d[2]
-    y2 = a2d[3]
-    xmin = min(x1, x2)
-    xmax = max(x1, x2)
-    ymin = min(y1, y2)
-    ymax = max(y1, y2)
-    for i in range(xmin, xmax + 1):
-        for j in range(ymin, ymax + 1):
-            if a2d[i][j] == 1:
-                counter += 1
-    return counter
+# def countLights(a2d, counter):
+#     x1 = a2d[0]
+#     y1 = a2d[1]
+#     x2 = a2d[2]
+#     y2 = a2d[3]
+#     xmin = min(x1, x2)
+#     xmax = max(x1, x2)
+#     ymin = min(y1, y2)
+#     ymax = max(y1, y2)
+#     for i in range(xmin, xmax + 1):
+#         for j in range(ymin, ymax + 1):
+#             if a2d[i][j] == 1:
+#                 counter += 1
+#     return counter
 
     if __name__ == "__main__":
-        pprint(makeGrid(N))
+        pprint(makeGrid(size))
+
