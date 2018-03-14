@@ -10,8 +10,10 @@ def getCommands(array):
     for i in array:
         #numbers = re.match("(.*)(\d+),(\d+) through (\d+),(\d+)", elem)
         #cmd = re.findall(".*(turn on|turn off|switch).*", i)
-        check = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?"
-                         "\d+).*")
+        #check = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]"
+         #                  "?\d+).*")
+        check = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]"
+                           "?\d+).*")
         mat = re.search(check, i)
         #newArray = []
         if mat:
@@ -21,7 +23,7 @@ def getCommands(array):
             newArray.append(int(mat.group(3)))
             newArray.append(int(mat.group(4)))
             newArray.append(int(mat.group(5)))
-            newArray.strip().split()
+            #newArray.strip().split()
 
 
             return newArray

@@ -17,7 +17,7 @@ def parseFile(input):
         with open(input, 'r') as f:
             N = int(f.readline())
             for line in f.readlines():
-                values = line.strip().split()
-                instructions.append(values)
+                #values = line.strip().split()
+                instructions.append(line)
         return N, instructions, getCommands(instructions)
     return
