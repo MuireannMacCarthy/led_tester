@@ -1,21 +1,28 @@
 from pprint import pprint
 import utils
 
-counter = 0
 
-def makeGrid(size):
-    a2d = [[0] * size for _ in range(size)]
-    return a2d
+# def makeGrid(size):
+#     a2d = [[0] * size for _ in range(size)]
+#     return a2d
 
 def checkSize(array, size):
-    limit = int(len(array))
-    for i in range(1, limit - 1):
-        ls = int(array[i])
-        if ls > 0 or ls < size:
-            print("too big")
-            pass
-        else:
-            checkCommand(array)
+    a2d = [[0] * size for _ in range(size)]
+    for line in array:
+        if line[0] == "turn on":
+            line.remove("turn on")
+        if line[0] == "turn off":
+            line.remove("turn off")
+        if line[0] == "switch":
+            line.remove("switch")
+        limit = int(len(line))
+        for i in range(0, limit - 1):
+            ls = int(line[i])
+            if ls < 0 or ls > size:
+                print("too big")
+                pass
+            else:
+                checkCommand(array, a2d)
 
 def checkCommand(array, a2d):
     for line in array:
@@ -25,15 +32,15 @@ def checkCommand(array, a2d):
             return turnOn(line, a2d)
         if line[0] == "turn off":
             line.remove("turn off")
-            return turnOff(line)
+            return turnOff(line, a2d)
         if line[0] == "switch":
             line.remove("switch")
-            return switch(line)
-        print("test one")
+            return switch(line, a2d)
 
 
 
 def turnOn(array, a2d):
+    counter = 0
     x1 = int(array[0])
     y1 = int(array[1])
     x2 = int(array[2])
@@ -45,11 +52,11 @@ def turnOn(array, a2d):
     for i in range(xmin, xmax + 1):
         for j in range(ymin, ymax + 1):
             a2d[i][j] = 1
-    print("test two")
-    return a2d
+    return a2d, countLights(a2d, array, counter)
 
 
-def turnOff(a2d):
+def turnOff(array, a2d):
+    counter = 0
     x1 = int(array[0])
     y1 = int(array[1])
     x2 = int(array[2])
@@ -62,9 +69,10 @@ def turnOff(a2d):
         for j in range(ymin, ymax + 1):
             a2d[i][j] = 0
     print(x1, y1)
-    return a2d
+    return a2d, countLights(a2d, array, counter)
 
-def switch(a2d):
+def switch(array, a2d):
+    counter = 0
     x1 = int(array[0])
     y1 = int(array[1])
     x2 = int(array[2])
@@ -79,9 +87,10 @@ def switch(a2d):
                 a2d[i][j] = 0
             if a2d[i][j] == 0:
                 a2d[i][j] = 1
-    return a2d
+    return a2d, countLights(a2d, array, counter)
 
-def countLights(a2d, counter):
+
+def countLights(a2d, array, counter):
     x1 = int(array[0])
     y1 = int(array[1])
     x2 = int(array[2])
@@ -94,11 +103,12 @@ def countLights(a2d, counter):
         for j in range(ymin, ymax + 1):
             if a2d[i][j] == 1:
                 counter += 1
-    return counter
     print("the counter is", counter)
+    return counter
 
-if __name__ == "__main__":
-    pprint(makeGrid(10))
+
+#if __name__ == "__main__":
+    #pprint(makeGrid(10))
  #   makeGrid(size)
   #  checkSize(array, size)
 

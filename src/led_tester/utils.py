@@ -19,7 +19,8 @@ def parseFile(input):
             N = int(f.readline())
             for line in f.readlines():
                 instructions.append(line)
-        return N, getCommands(instructions, N), Grid.makeGrid(N)
+        return N, getCommands(instructions, N)
+            #, Grid.makeGrid(N)
     return
 
 def getCommands(array, N):
