@@ -19,10 +19,10 @@ def parseFile(input):
             N = int(f.readline())
             for line in f.readlines():
                 instructions.append(line)
-        return N, getCommands(instructions), Grid.makeGrid(N)
+        return N, getCommands(instructions, N), Grid.makeGrid(N)
     return
 
-def getCommands(array):
+def getCommands(array, N):
     """
     function to get commands from list and numbers from list
     """
@@ -41,12 +41,11 @@ def getCommands(array):
 
             instructions.append(newArray)
 
-    return instructions, Grid.checkCommand(instructions)
-
-
+    return instructions, Grid.checkSize(instructions, N)
 
 
 if __name__ == "__main__":
+    #main()
     pprint(parseFile("../../../data/test_data.txt"))
 
 
