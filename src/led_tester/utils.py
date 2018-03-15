@@ -20,7 +20,6 @@ def parseFile(input):
             for line in f.readlines():
                 instructions.append(line)
         return N, getCommands(instructions, N)
-            #, Grid.makeGrid(N)
     return
 
 def getCommands(array, N):
@@ -47,7 +46,8 @@ def getCommands(array, N):
 
 if __name__ == "__main__":
     #main()
-    pprint(parseFile("../../../data/test_data.txt"))
+    parseFile("../../../data/test_data.txt")
+
 
 
 #References
