@@ -3,7 +3,8 @@ led_tester
 ==========
 
 
-This project counts how many lights are turned on when a file from the data directory is run with the
+This project creates a grid of lights and counts how many lights
+are turned on when a file from the data directory is run with the
 main.py file.
 
 
@@ -14,7 +15,8 @@ This project can be run with files that follow the format and structure of the f
 of this project.
 To run this project enter the following command into the command line:
 pip install git+https://github.com/MuireannMacCarthy/led_tester.git
-To run with a specific file from the data directory for example to run with the test_data.txt use the following
+
+To run with a file from the data directory such as for example to run with the test_data.txt use the following
 commands in the command line:
 python main.py --input ./data/test_data.txt
 
