@@ -19,10 +19,11 @@ def checkSize(array, size):
             line.remove("switch")
         limit = int(len(line))
         for i in range(0, limit - 1):
-            ls = int(line[i])
+            ls = line[i]
             if ls < 0 or ls > size:
+                ls = 0
                 print("too big")
-                pass
+                #pass
             else:
                 checkCommand(array, a2d)
     return countLights(a2d, counter)
@@ -99,7 +100,7 @@ def switch(array, a2d):
         for j in range(ymin, ymax + 1):
             if a2d[i][j] == 1:
                 a2d[i][j] = 0
-            if a2d[i][j] == 0:
+            else:
                 a2d[i][j] = 1
     return a2d
         #, countLights(a2d, array, counter)

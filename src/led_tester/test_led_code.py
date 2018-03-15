@@ -23,7 +23,7 @@ def test_parse_file():
                               ['turn off', 0, 0, 9, 9],
                               ['turn on', 2, 2, 7, 7]]
 
-def test_output():
+def test_Grid():
     ifile = "data/test_data.txt"
     N, instructions, counter = Grid.makeGrid(ifile)
     assert counter == 9
