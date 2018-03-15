@@ -6,8 +6,8 @@ counter = 0
 
 def checkSize(array, size):
     """
-    function to check the the integers parsed through are positive numbers and not greater than the
-    size of the grid
+    function to check the integers passed to checkCommand function are positive numbers and not greater than
+    the size of the grid
     """
     a2d = [[0] * size for _ in range(size)]
     for line in array:
@@ -107,7 +107,7 @@ def switch(array, a2d):
 
 def countLights(a2d, counter):
     """
-    function to iterate through the grid and count how many lights are turned 
+    function to iterate through the grid and count how many lights are turned
     """
     # x1 = int(array[0])
     # y1 = int(array[1])
