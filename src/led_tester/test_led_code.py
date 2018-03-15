@@ -24,6 +24,19 @@ def test_parse_file():
                               ['turn on', 2, 2, 7, 7]]
 
 def test_Grid():
-    ifile = "data/test_data.txt"
-    N, instructions, counter = Grid.makeGrid(ifile)
-    assert counter == 9
+    array = [['turn on', 0, 0, 9, 9],
+            ['turn off', 0, 0, 9, 9],
+            ['switch', 0, 0, 9, 9],
+            ['turn off', 0, 0, 9, 9],
+            ['turn on', 2, 2, 7, 7]]
+    a2d = Grid.checkSize(array, 10)
+    assert a2d == [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]

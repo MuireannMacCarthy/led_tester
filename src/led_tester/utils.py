@@ -3,13 +3,10 @@
 """
 import argparse
 import re
-# parser = argparse.ArgumentParser()
-# parser.add_argument('--input', help='input help')
-# args = parser.parse_args()
-from pprint import pprint
+
 from led_tester import Grid
 
-# filename = args.input
+
 def parseFile(input):
     if input.startswith('http'):
         pass
@@ -45,7 +42,6 @@ def getCommands(array, N):
 
 
 if __name__ == "__main__":
-    #main()
     parseFile("../../../data/test_data.txt")
 
 
